@@ -120,7 +120,7 @@ provide("showModal", visible);
         "
       ></employee-form>
     </a-modal>
-    <a-row justify="between" style="width: 100%">
+    <a-row style="width: 100%">
       <a-col :span="12"><h2>Employee Table</h2></a-col>
       <a-col align="end" :span="12"
         ><a-button type="primary" @click="visible = true"

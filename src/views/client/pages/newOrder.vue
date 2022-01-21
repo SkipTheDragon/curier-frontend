@@ -25,11 +25,14 @@ instance.get("warehouses").then(({ data }) => {
 });
 
 const formState: UnwrapRef<Order> = reactive({
+  id: -1,
   fromWarehouse: "",
   toWarehouse: "",
   price: 0,
   mass: 0,
   status: 1,
+  client: null,
+  employee: null
 });
 
 const handleFinish = () => {
@@ -97,7 +100,7 @@ const rules = {
 };
 </script>
 <template>
-  <a-row justify="between" style="width: 100%">
+  <a-row style="width: 100%">
     <a-col :span="12"><h2>New Order</h2></a-col>
     <a-col align="end" :span="12">
       <OrderList />

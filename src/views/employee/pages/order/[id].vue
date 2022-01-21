@@ -13,9 +13,22 @@ const loadOrderById = () => {
 };
 loadOrderById();
 
-const cancel = (id :number) => {
-    instance.post(`/shipments/cancel/${id}`)
-}
+const updateStatus = () => {
+  if (order.value !== undefined) {
+    instance.post(`/shipments/${props.id}/changestatus`).then(({ data }) => {
+      order.value = data;
+    });
+  }
+};
+const isOrderAccepted = ref<boolean>(false);
+const takeOrder = () => {
+  if (order.value !== undefined) {
+    instance.post(`/shipments/${props.id}/take-order`).then(({ data }) => {
+      order.value = data;
+    });
+    isOrderAccepted.value = true;
+  }
+};
 </script>
 
 <template>
@@ -25,8 +38,11 @@ const cancel = (id :number) => {
         <h2>Status for: #{{ order.id }}</h2>
       </a-col>
       <a-col :span="12" align="end" v-if="order.status !== 0">
-        <a-button @click="cancel(id)" type="primary" :disabled="order.status >= 4"
-          >Cancel</a-button
+        <a-button @click="takeOrder" type="primary" v-if="order.status === 1"
+          >Accept order</a-button
+        >
+        <a-button @click="updateStatus" type="primary" v-if="order.status !== 0"
+          >Confirm step</a-button
         >
       </a-col>
     </a-row>
@@ -64,23 +80,24 @@ const cancel = (id :number) => {
         }}</b>
       </a-timeline-item>
     </a-timeline>
-      <template v-else-if="order.status > 5">
+    <template v-else-if="order.status > 5">
       <a-result
         status="success"
         title="Thank you, your order has been fulfilled!"
       >
         <template #extra>
-          <a-button key="console" type="primary" href="/client/pages/neworder">Create a new one</a-button>
+          <a-button key="console" type="primary" href="/client/pages/neworder"
+            >Create a new one</a-button
+          >
         </template>
       </a-result>
     </template>
     <template v-else>
-      <a-result
-        status="warning"
-        title="Your order has been cancelled!"
-      >
+      <a-result status="warning" title="Your order has been cancelled!">
         <template #extra>
-          <a-button key="console" type="primary" href="/client/pages/neworder">Create a new one</a-button>
+          <a-button key="console" type="primary" href="/client/pages/neworder"
+            >Create a new one</a-button
+          >
         </template>
       </a-result>
     </template>

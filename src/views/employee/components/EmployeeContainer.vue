@@ -34,7 +34,7 @@ const titleClick = (e: Event) => {};
             <HomeOutlined />
           </template>
           <template #title>
-            <router-link :to="{ name: 'admin' }"> Dashboard </router-link>
+            <router-link :to="{ name: 'employee' }"> Free Orders </router-link>
           </template>
           <template #expandIcon> </template>
         </a-sub-menu>
@@ -43,40 +43,9 @@ const titleClick = (e: Event) => {};
             <BarChartOutlined />
           </template>
           <template #title>
-            <router-link :to="{ name: 'admin-statistics' }"> Statistics </router-link>
+            <router-link :to="{ name: 'employee-pages-my-orders' }">  My Orders </router-link>
           </template>
           <template #expandIcon> </template>
-        </a-sub-menu>
-        <a-sub-menu key="sub2" @titleClick="titleClick">
-          <template #icon>
-            <AppstoreOutlined />
-          </template>
-          <template #title>CRUD</template>
-          <a-menu-item key="5"
-            ><router-link :to="{ name: 'admin-employee' }"
-              >Manage Employees</router-link
-            ></a-menu-item
-          >
-          <a-menu-item key="6"
-            ><router-link :to="{ name: 'admin-employee' }"
-              >Manage Warehouses</router-link
-            ></a-menu-item
-          >
-          <a-menu-item key="7"
-            ><router-link :to="{ name: 'admin-employee' }"
-              >Manage Clients</router-link
-            ></a-menu-item
-          >
-          <a-menu-item key="8"
-            ><router-link :to="{ name: 'admin-employee' }"
-              >Manage Users</router-link
-            ></a-menu-item
-          >
-          <a-menu-item key="9"
-            ><router-link :to="{ name: 'admin-employee' }"
-              >Manage Locations</router-link
-            ></a-menu-item
-          >
         </a-sub-menu>
       </a-menu></a-col
     >

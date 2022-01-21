@@ -12,7 +12,7 @@ const route = useRoute();
       <a-menu theme="dark" mode="horizontal" :style="{ lineHeight: '64px' }">
         <a-menu-item key="1"><router-link :to="{name: 'index'}">Home</router-link></a-menu-item>
         <a-menu-item key="2" v-if="store.getters.isUser('USER')"><router-link :to="{name: 'client-pages-newOrder'}">New Order</router-link></a-menu-item>
-        <a-menu-item key="3" v-if="store.getters.isUser('EMPLOYEE')">Employee Panel</a-menu-item>
+        <a-menu-item key="3" v-if="store.getters.isUser('EMPLOYEE')"><router-link :to="{name:'employee'}">Employee Panel</router-link></a-menu-item>
         <a-menu-item key="4" v-if="store.getters.isUser('ADMIN')"><router-link :to="{name: 'admin'}">Admin Panel</router-link></a-menu-item>
         <a-menu-item key="5" v-if="store.state.isAuth === true"><router-link :to="{name: 'logout'}">Logout</router-link></a-menu-item>
         <a-menu-item key="6" v-if="store.state.isAuth === false"><router-link :to="{name: 'login'}">Login</router-link></a-menu-item>

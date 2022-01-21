@@ -4,6 +4,7 @@ import App from './App.vue';
 import routes from '~pages';
 import Vuex from 'vuex';
 import { store, key } from './store'
+import VueApexCharts from "vue3-apexcharts";
 
 // eslint-disable-next-line no-console
 console.log(routes)
@@ -15,6 +16,7 @@ export const router = createRouter({
 
 const app = createApp(App)
 
+app.use(VueApexCharts);
 app.use(router);
 app.use(Vuex);
 app.use(store, key)

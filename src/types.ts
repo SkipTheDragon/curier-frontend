@@ -38,5 +38,6 @@ export interface Order {
   mass: number;
   status: number;
   employee: Employee| null;
-  client: Employee;
+  client: Employee | null;
+  createdDate: string
 }

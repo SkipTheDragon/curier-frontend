@@ -9,9 +9,12 @@
   "dependencies": {
     "@types/axios": "^0.14.0",
     "ant-design-vue": "^2.2.8",
+    "apexcharts": "^3.33.0",
+    "js-file-download": "^0.4.12",
     "unplugin-vue-components": "^0.17.11",
     "vue": "^3.2.25",
     "vue-router": "^4.0.12",
+    "vue3-apexcharts": "^1.4.1",
     "vuex": "^4.0.2",
     "vuex-persistedstate": "^4.1.0"
   },
